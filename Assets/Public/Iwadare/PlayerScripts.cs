@@ -9,8 +9,11 @@ public class PlayerScripts : MonoBehaviour
     Rigidbody2D _rb;
     Animator _ani;
     AudioSource _audio;
+    SpriteRenderer _sprite;
+    [SerializeField] Color _butAttackColor;
+    [SerializeField] Color _starTimeColor;
     [SerializeField] GameObject[] _attackObj;
-    [SerializeField] float _attackCoolTime = 3f;
+    [SerializeField] float _attackCoolTime = 0.5f;
     [SerializeField] float _speed = 3f;
     [SerializeField] GameObject boots;
     [SerializeField] GameObject shord;
@@ -27,6 +30,7 @@ public class PlayerScripts : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _ani = GetComponent<Animator>();
         _audio = GetComponent<AudioSource>();
+        _sprite = GetComponent<SpriteRenderer>();
 
         foreach (var i in _attackObj)
         {
@@ -92,6 +96,7 @@ public class PlayerScripts : MonoBehaviour
         {
             _butAttackTimebool = true;
             _starTime = true;
+            _sprite.color = _butAttackColor;
             StartCoroutine(StarTime());
             Debug.Log("çUåÇÇ≈Ç´Ç»Ç¢ÇºÇ¢");
         }
@@ -102,9 +107,11 @@ public class PlayerScripts : MonoBehaviour
         yield return new WaitForSeconds(5f);
         _butAttackTimebool = false;
         Debug.Log("çUåÇÇ≈Ç´ÇÈÇºÇ¢");
+        _sprite.color = _starTimeColor;
         yield return new WaitForSeconds(3f);
         _starTime = false;
         Debug.Log("ìñÇΩÇÈÇ∆í…Ç¢ÇÊÅH");
+        _sprite.color = Color.white;
     }
 
     public void AttackNumSansyo()
