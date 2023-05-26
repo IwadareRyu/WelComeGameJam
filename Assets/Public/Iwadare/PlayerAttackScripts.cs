@@ -28,6 +28,8 @@ public class PlayerAttackScripts : MonoBehaviour
                 if(i.gameObject.tag == "Enemy")
                 {
                     //‚±‚±‚É“G‚ğ“|‚µ‚½‚Ìˆ—‚ğ‘‚­B
+                    var enemyactor = i.GetComponent<EnemyActor>();
+                    enemyactor.Damage();
                     Debug.Log("“–‚½‚Á‚½‚æI");
                 }
             }
