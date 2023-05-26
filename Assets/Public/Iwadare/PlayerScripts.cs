@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerScripts : MonoBehaviour
 {
     Rigidbody2D _rb;
+    Animator _ani;
     [SerializeField] GameObject[] _attackObj;
     [SerializeField] float _attackCoolTime = 3f;
     [SerializeField] float _speed = 3f;
@@ -18,6 +19,7 @@ public class PlayerScripts : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _ani = GetComponent<Animator>();
 
         foreach (var i in _attackObj)
         {
@@ -41,6 +43,9 @@ public class PlayerScripts : MonoBehaviour
             _attackCoolTimebool = true;
             StartCoroutine(AttackTime());
         }
+        var f = Mathf.Abs(h) + Mathf.Abs(v);
+        Debug.Log(Mathf.Abs(h) + Mathf.Abs(v));
+        if(_ani)_ani.SetFloat("speed",f);
     }
 
     IEnumerator AttackTime()
