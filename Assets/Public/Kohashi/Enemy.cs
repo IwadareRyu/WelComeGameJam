@@ -3,22 +3,19 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] float speed;
+    private Rigidbody2D enemyP;
+    private GameObject player;
 
-    GameObject Player;
-    GameObject _Enemy;
-    public float Speed;
-
- 
     void Start()
     {
-        Rigidbody2D _rb = GetComponent<Rigidbody2D>();
-        Player = GameObject.Find("Player");
-        _Enemy = GameObject.Find("Homing");
+        enemyP = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player");
+
     }
 
-  
-    void Update()
+    private void FixedUpdate()
     {
-        this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Player.transform.position.x, Player.transform.position.y), Speed * Time.deltaTime);
+        enemyP.AddForce((player.transform.position - transform.position).normalized * speed);
     }
 }
