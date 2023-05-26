@@ -4,12 +4,17 @@ public class LockRotation : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("対象物(向く方向)")]
-    private GameObject target;
+    private GameObject playerObject;
 
+    void Start()
+    {
+        playerObject = GameObject.FindWithTag("Player");
+    }
+        
     private void Update()
     {
         // 対象物と自分自身の座標からベクトルを算出
-        Vector3 vector3 = target.transform.position - this.transform.position;
+        Vector3 vector3 = playerObject.transform.position - this.transform.position;
         // もし上下方向の回転はしないようにしたければ以下のようにする。
         // vector3.y = 0f;
 
