@@ -504,10 +504,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 321693152299230212, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 321693152306386657, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 321693152306386658, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1319229776, guid: 5cda4fe504620f145893683ab082c640, type: 3}
     - target: {fileID: 321693152306386659, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -550,6 +558,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 321693152306386659, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321693152640718311, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 321693152640718313, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 321693152640718314, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 589713752013805036, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a307cde3c6b5b942bbf6e1996e25434, type: 3}
+    - target: {fileID: 589713752013805036, guid: 13fa3b8f183026440a4f7936cceea801, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

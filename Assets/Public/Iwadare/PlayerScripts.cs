@@ -12,9 +12,14 @@ public class PlayerScripts : MonoBehaviour
     [SerializeField] GameObject[] _attackObj;
     [SerializeField] float _attackCoolTime = 3f;
     [SerializeField] float _speed = 3f;
+    [SerializeField] GameObject boots;
+    [SerializeField] GameObject shord;
     bool _attackCoolTimebool;
     bool _butAttackTimebool;
     bool _starTime;
+    bool _attacknum;
+    bool _speedUp;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +32,8 @@ public class PlayerScripts : MonoBehaviour
         {
             i.SetActive(false);
         }
+        boots.SetActive(false);
+        shord.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,8 +52,8 @@ public class PlayerScripts : MonoBehaviour
             _attackCoolTimebool = true;
             StartCoroutine(AttackTime());
         }
+
         var f = Mathf.Abs(h) + Mathf.Abs(v);
-        Debug.Log(Mathf.Abs(h) + Mathf.Abs(v));
         if(_ani)_ani.SetFloat("speed",f);
     }
 
@@ -63,6 +70,18 @@ public class PlayerScripts : MonoBehaviour
             if (_audio) _audio.Play();
             yield return new WaitForSeconds(0.3f);
             _attackObj[1].SetActive(false);
+            if(_attacknum)
+            {
+                _attackObj[0].SetActive(true);
+                if (_audio) _audio.Play();
+                yield return new WaitForSeconds(0.3f);
+                _attackObj[0].SetActive(false);
+                _attackObj[1].SetActive(true);
+                if (_audio) _audio.Play();
+                yield return new WaitForSeconds(0.3f);
+                _attackObj[1].SetActive(false);
+
+            }
         }
         _attackCoolTimebool = false;
     }
@@ -87,4 +106,37 @@ public class PlayerScripts : MonoBehaviour
         _starTime = false;
         Debug.Log("ìñÇΩÇÈÇ∆í…Ç¢ÇÊÅH");
     }
+
+    public void AttackNumSansyo()
+    {
+        StartCoroutine(AttackNum());
+    }
+
+    IEnumerator AttackNum()
+    {
+        _attacknum = true;
+        shord.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        _attacknum = false;
+        shord.SetActive(false);
+    }
+
+    public void SpeedUpSanssyo()
+    {
+        StartCoroutine(SpeedUp());
+    }
+
+    IEnumerator SpeedUp()
+    {
+        var tmpspeed = _speed;
+        if (!_speedUp) _speed = _speed * 2;
+        boots.SetActive(true);
+        _speedUp = true;
+        yield return new WaitForSeconds(10f);
+        if(_speedUp) _speed = tmpspeed;
+        _speedUp = false;
+        boots.SetActive(false);
+    }
+
+
 }
