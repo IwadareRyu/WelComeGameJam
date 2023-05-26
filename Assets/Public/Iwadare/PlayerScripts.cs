@@ -8,6 +8,7 @@ public class PlayerScripts : MonoBehaviour
 {
     Rigidbody2D _rb;
     Animator _ani;
+    AudioSource _audio;
     [SerializeField] GameObject[] _attackObj;
     [SerializeField] float _attackCoolTime = 3f;
     [SerializeField] float _speed = 3f;
@@ -20,6 +21,7 @@ public class PlayerScripts : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _ani = GetComponent<Animator>();
+        _audio = GetComponent<AudioSource>();
 
         foreach (var i in _attackObj)
         {
@@ -54,9 +56,11 @@ public class PlayerScripts : MonoBehaviour
         if (!_butAttackTimebool)
         {
             _attackObj[0].SetActive(true);
+            if (_audio) _audio.Play();
             yield return new WaitForSeconds(0.3f);
             _attackObj[0].SetActive(false);
             _attackObj[1].SetActive(true);
+            if (_audio) _audio.Play();
             yield return new WaitForSeconds(0.3f);
             _attackObj[1].SetActive(false);
         }
