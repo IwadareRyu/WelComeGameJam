@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321693152299230210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.98, y: -0.41, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: -3.21, y: -0.41, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2215334301579358429}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTrans: {fileID: 321693152306386659}
-  _size: {x: 3, y: 1}
+  _size: {x: 5, y: 1}
 --- !u!1 &321693152306386657
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,10 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763f587079d1fff468d6f276fb808111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _butAttackColor: {r: 1, g: 0, b: 0, a: 1}
+  _starTimeColor: {r: 0.9180964, g: 1, b: 0, a: 1}
   _attackObj:
   - {fileID: 321693152640718311}
   - {fileID: 321693152299230210}
-  _attackCoolTime: 3
+  _attackCoolTime: 0.5
   _speed: 3
   boots: {fileID: 3572863960606172240}
   shord: {fileID: 4004803104287822070}
@@ -391,8 +393,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321693152640718311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.93, y: 0.31, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalPosition: {x: 2.76, y: 0.31, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 160831640168382848}
@@ -464,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTrans: {fileID: 321693152306386659}
-  _size: {x: 3, y: 1}
+  _size: {x: 5, y: 1}
 --- !u!1 &1124925845723894712
 GameObject:
   m_ObjectHideFlags: 0
