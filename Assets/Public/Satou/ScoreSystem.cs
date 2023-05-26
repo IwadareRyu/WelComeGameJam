@@ -16,14 +16,15 @@ public class ScoreSystem : MonoBehaviour
 {
     [SerializeField] Text _label;
     [SerializeField] Text _text;
-    int _totalScore;
+
+    public int TotalScore { get; private set; }
 
     void Awake()
     {
         MessageBroker.Default.Receive<ScoreMessageData>().Subscribe(data => 
         {
-            _totalScore += data.Score;
-            _text.text = _totalScore.ToString();
+            TotalScore += data.Score;
+            _text.text = TotalScore.ToString();
         }).AddTo(this);
     }
 

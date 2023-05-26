@@ -3,15 +3,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 using UniRx.Triggers;
+using UnityEngine.SceneManagement;
 
 public class InGameStream : MonoBehaviour
 {
     [SerializeField] GameObject _titleItemRoot;
     [SerializeField] Button _gameStartButton;
+    [SerializeField] Button _gameReturnButton;
     [SerializeField] Generator _generator;
     [SerializeField] InGameTimer _timer;
     [SerializeField] ScoreSystem _scoreSystem;
     [SerializeField] AudioSource _audioSource;
+    [SerializeField] GameObject _player;
 
     void Awake()
     {
@@ -22,6 +25,9 @@ public class InGameStream : MonoBehaviour
         
         // ボタンクリックしたらゲームスタート
         _gameStartButton.onClick.AddListener(() => StartCoroutine(GameStream()));
+
+        // タイトルに戻る
+        _gameReturnButton.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
     }
 
     void OnTimeOver()
@@ -29,6 +35,10 @@ public class InGameStream : MonoBehaviour
         GameOverMessageSender.SendMessage();
         _generator.Stop();
         _audioSource.Stop();
+        _player.SetActive(false);
+        _scoreSystem.Inactive();
+
+        GetComponent<ResultModule>().Active(_scoreSystem.TotalScore);
     }
 
     /// <summary>
@@ -36,6 +46,8 @@ public class InGameStream : MonoBehaviour
     /// </summary>
     IEnumerator GameStream()
     {
+        _player.SetActive(true);
+
         yield return DisableTitleItem();
         _generator.Boot();
         _timer.Boot();
