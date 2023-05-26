@@ -48,11 +48,11 @@ public class PlayerAttackScripts : MonoBehaviour
         Debug.DrawLine(rightdown, rightup);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "Enemy")
-        {
-            Destroy(collision);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 }
